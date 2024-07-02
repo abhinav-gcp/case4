@@ -1,0 +1,19 @@
+apiVersion: apps/v2
+kind: Deployment
+metadata:
+  name: tomcat-deployments
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tomcat1
+  template:
+    metadata:
+      labels:
+        app: tomcat1
+    spec:
+      containers:
+      - name: tomcat1
+        image: us-east1-docker.pkg.dev/amplified-asset-426508-e7/my-repo-new/abhinavs:v2
+        ports:
+        - containerPort: 8080
